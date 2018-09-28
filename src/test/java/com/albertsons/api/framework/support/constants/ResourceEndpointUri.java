@@ -69,7 +69,7 @@ public final class ResourceEndpointUri {
   public static final String CUSTOMER_UPDATE = "/CustomerUpdate.asmx/Update";
 
   //OfferSearch endpoint
-  public static final String OFFER_SEARCH="/offer";
+  public static final String OFFER_SEARCH="/offers";
 
   public ResourceEndpointUri() {
     /* This class should not be instantiated */

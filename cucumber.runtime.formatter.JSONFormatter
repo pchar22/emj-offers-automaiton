@@ -4,267 +4,6 @@
     "elements": [
       {
         "line": 2,
-        "name": "Set up Environment for Testing GrandChildPlus Parameters",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 988969896,
-              "status": "passed"
-            },
-            "line": 3,
-            "name": "The Test Environment is Defined for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.theTestEnvironmentIsDefinedForGrandChildPlusParameters(String,String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "currentTestEnvironemnt",
-                  "dev"
-                ]
-              },
-              {
-                "cells": [
-                  "apiGroupName",
-                  "offerSearchRunners"
-                ]
-              },
-              {
-                "cells": [
-                  "apiName",
-                  "get_offersByParentParams"
-                ]
-              }
-            ],
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1033726,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "Parameters are intialized for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.parametersAreIntializedForGrandChildPlusParameters()"
-            },
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "line": 9,
-        "name": "Search offers using ExternalOfferID, OfferStatus, EndDate \u0026 StoreId",
-        "description": "",
-        "id": "offersearch-\"grandchild++-parameters\"-test-scenarios-with-\"no-auth\";search-offers-using-externalofferid--offerstatus--enddate-\u0026-storeid",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 15672847,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "Business User searches offers ExternalOfferID, OfferStatus, EndDate \u0026 StoreId",
-            "match": {
-              "location": "GrandChildPlusScenarios.businessUserSearchesOffersExternalOfferIDOfferStatusEndDateStoreId(String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "testGetOfferSearchByEndDateAndOfferStatus\u0026ExternalOfferIdAndStoreID"
-                ]
-              }
-            ],
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3472868996,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "API Response is extracted for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsExtractedForGrandChildPlusParameters()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.GrandChildPlusScenarios.apiResponseIsAssertedForSuccessStatusCodeForGrandChildPlusParameters(GrandChildPlusScenarios.java:134)\r\n\tat ✽.API Response is asserted for Success Status Code for GrandChildPlus Parameters(src/test/resources/OfferSearchGrandChildPlus.feature:13)\r\n",
-              "duration": 5571045,
-              "status": "failed"
-            },
-            "line": 13,
-            "name": "API Response is asserted for Success Status Code for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsAssertedForSuccessStatusCodeForGrandChildPlusParameters()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 14,
-            "name": "API Response is asserted for ALL attributes",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsAssertedForALLAttributes(String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "responseThree"
-                ]
-              }
-            ],
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "line": 2,
-        "name": "Set up Environment for Testing GrandChildPlus Parameters",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 11671671,
-              "status": "passed"
-            },
-            "line": 3,
-            "name": "The Test Environment is Defined for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.theTestEnvironmentIsDefinedForGrandChildPlusParameters(String,String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "currentTestEnvironemnt",
-                  "dev"
-                ]
-              },
-              {
-                "cells": [
-                  "apiGroupName",
-                  "offerSearchRunners"
-                ]
-              },
-              {
-                "cells": [
-                  "apiName",
-                  "get_offersByParentParams"
-                ]
-              }
-            ],
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1144482,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "Parameters are intialized for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.parametersAreIntializedForGrandChildPlusParameters()"
-            },
-            "keyword": "And "
-          }
-        ]
-      },
-      {
-        "line": 17,
-        "name": "Search offers using OfferStatus,PriceCode, StoreID \u0026 ExternalOfferID",
-        "description": "",
-        "id": "offersearch-\"grandchild++-parameters\"-test-scenarios-with-\"no-auth\";search-offers-using-offerstatus-pricecode--storeid-\u0026-externalofferid",
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 7926875,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "Business User searches offers using OfferStatus, PriceCode \u0026 StoreID \u0026 ExternalOfferID",
-            "match": {
-              "location": "GrandChildPlusScenarios.businessUserSearchesOffersUsingOfferStatusPriceCodeStoreIDExternalOfferID(String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "testGetOfferSearchByPriceCdAndStoreIdAndOfferStatusAndExternalOfferId"
-                ]
-              }
-            ],
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 425771285,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "API Response is extracted for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsExtractedForGrandChildPlusParameters()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.GrandChildPlusScenarios.apiResponseIsAssertedForSuccessStatusCodeForGrandChildPlusParameters(GrandChildPlusScenarios.java:134)\r\n\tat ✽.API Response is asserted for Success Status Code for GrandChildPlus Parameters(src/test/resources/OfferSearchGrandChildPlus.feature:21)\r\n",
-              "duration": 838877,
-              "status": "failed"
-            },
-            "line": 21,
-            "name": "API Response is asserted for Success Status Code for GrandChildPlus Parameters",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsAssertedForSuccessStatusCodeForGrandChildPlusParameters()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
-            "line": 22,
-            "name": "API Response is asserted for ALL attributes",
-            "match": {
-              "location": "GrandChildPlusScenarios.apiResponseIsAssertedForALLAttributes(String\u003e)"
-            },
-            "rows": [
-              {
-                "cells": [
-                  "responseFours"
-                ]
-              }
-            ],
-            "keyword": "And "
-          }
-        ]
-      }
-    ],
-    "name": "OfferSearch \"GrandChild++ Parameters\" Test Scenarios with \"NO AUTH\"",
-    "description": "",
-    "id": "offersearch-\"grandchild++-parameters\"-test-scenarios-with-\"no-auth\"",
-    "keyword": "Feature",
-    "uri": "src/test/resources/OfferSearchGrandChildPlus.feature",
-    "tags": []
-  },
-  {
-    "line": 1,
-    "elements": [
-      {
-        "line": 2,
         "name": "Set up Environment for Testing",
         "description": "",
         "type": "background",
@@ -272,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2503914,
+              "duration": 694058758,
               "status": "passed"
             },
             "line": 3,
@@ -304,7 +43,7 @@
           },
           {
             "result": {
-              "duration": 575523,
+              "duration": 525824,
               "status": "passed"
             },
             "line": 7,
@@ -326,7 +65,7 @@
         "steps": [
           {
             "result": {
-              "duration": 7018262,
+              "duration": 10388110,
               "status": "passed"
             },
             "line": 10,
@@ -345,7 +84,7 @@
           },
           {
             "result": {
-              "duration": 409309197,
+              "duration": 2793750481,
               "status": "passed"
             },
             "line": 12,
@@ -357,9 +96,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:13)\r\n",
-              "duration": 781447,
-              "status": "failed"
+              "duration": 2760783,
+              "status": "passed"
             },
             "line": 13,
             "name": "API Response is asserted for Success Status Code",
@@ -370,7 +108,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 994957909,
+              "status": "passed"
             },
             "line": 14,
             "name": "API Response is asserted for counts",
@@ -398,7 +137,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2215948,
+              "duration": 13616064,
               "status": "passed"
             },
             "line": 3,
@@ -430,7 +169,7 @@
           },
           {
             "result": {
-              "duration": 397082,
+              "duration": 484808,
               "status": "passed"
             },
             "line": 7,
@@ -452,7 +191,7 @@
         "steps": [
           {
             "result": {
-              "duration": 15911999,
+              "duration": 4371070,
               "status": "passed"
             },
             "line": 18,
@@ -471,7 +210,7 @@
           },
           {
             "result": {
-              "duration": 409419542,
+              "duration": 363114194,
               "status": "passed"
             },
             "line": 20,
@@ -483,9 +222,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:21)\r\n",
-              "duration": 1835274,
-              "status": "failed"
+              "duration": 3858371,
+              "status": "passed"
             },
             "line": 21,
             "name": "API Response is asserted for Success Status Code",
@@ -496,7 +234,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 23598526,
+              "status": "passed"
             },
             "line": 22,
             "name": "API Response is asserted for counts",
@@ -524,7 +263,7 @@
         "steps": [
           {
             "result": {
-              "duration": 4799443,
+              "duration": 1186591,
               "status": "passed"
             },
             "line": 3,
@@ -556,7 +295,7 @@
           },
           {
             "result": {
-              "duration": 396261,
+              "duration": 630826,
               "status": "passed"
             },
             "line": 7,
@@ -578,7 +317,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2141701,
+              "duration": 1710775,
               "status": "passed"
             },
             "line": 26,
@@ -597,7 +336,7 @@
           },
           {
             "result": {
-              "duration": 361743436,
+              "duration": 1512646448,
               "status": "passed"
             },
             "line": 28,
@@ -609,9 +348,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:29)\r\n",
-              "duration": 497994,
-              "status": "failed"
+              "duration": 378987,
+              "status": "passed"
             },
             "line": 29,
             "name": "API Response is asserted for Success Status Code",
@@ -622,7 +360,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 6986906479,
+              "status": "passed"
             },
             "line": 30,
             "name": "API Response is asserted for counts",
@@ -650,7 +389,7 @@
         "steps": [
           {
             "result": {
-              "duration": 748631,
+              "duration": 2675881,
               "status": "passed"
             },
             "line": 3,
@@ -682,7 +421,7 @@
           },
           {
             "result": {
-              "duration": 220692,
+              "duration": 400316,
               "status": "passed"
             },
             "line": 7,
@@ -704,7 +443,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2631489,
+              "duration": 1435559,
               "status": "passed"
             },
             "line": 34,
@@ -723,7 +462,7 @@
           },
           {
             "result": {
-              "duration": 390136037,
+              "duration": 356699299,
               "status": "passed"
             },
             "line": 36,
@@ -735,9 +474,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:37)\r\n",
-              "duration": 475022,
-              "status": "failed"
+              "duration": 554125,
+              "status": "passed"
             },
             "line": 37,
             "name": "API Response is asserted for Success Status Code",
@@ -748,7 +486,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 81391638,
+              "status": "passed"
             },
             "line": 38,
             "name": "API Response is asserted for counts",
@@ -776,7 +515,7 @@
         "steps": [
           {
             "result": {
-              "duration": 679716,
+              "duration": 906863,
               "status": "passed"
             },
             "line": 3,
@@ -808,7 +547,7 @@
           },
           {
             "result": {
-              "duration": 223974,
+              "duration": 281370,
               "status": "passed"
             },
             "line": 7,
@@ -830,7 +569,7 @@
         "steps": [
           {
             "result": {
-              "duration": 19768782,
+              "duration": 17773441,
               "status": "passed"
             },
             "line": 42,
@@ -849,7 +588,7 @@
           },
           {
             "result": {
-              "duration": 394647924,
+              "duration": 366501291,
               "status": "passed"
             },
             "line": 44,
@@ -861,9 +600,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:45)\r\n",
-              "duration": 1713442,
-              "status": "failed"
+              "duration": 373655,
+              "status": "passed"
             },
             "line": 45,
             "name": "API Response is asserted for Success Status Code",
@@ -874,7 +612,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 41221028,
+              "status": "passed"
             },
             "line": 46,
             "name": "API Response is asserted for counts",
@@ -902,7 +641,7 @@
         "steps": [
           {
             "result": {
-              "duration": 964811,
+              "duration": 1194384,
               "status": "passed"
             },
             "line": 3,
@@ -934,7 +673,7 @@
           },
           {
             "result": {
-              "duration": 261303,
+              "duration": 333870,
               "status": "passed"
             },
             "line": 7,
@@ -956,7 +695,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1674883,
+              "duration": 2022907,
               "status": "passed"
             },
             "line": 50,
@@ -975,7 +714,7 @@
           },
           {
             "result": {
-              "duration": 378378223,
+              "duration": 599089610,
               "status": "passed"
             },
             "line": 52,
@@ -987,9 +726,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:53)\r\n",
-              "duration": 604237,
-              "status": "failed"
+              "duration": 359710,
+              "status": "passed"
             },
             "line": 53,
             "name": "API Response is asserted for Success Status Code",
@@ -1000,7 +738,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 1962811249,
+              "status": "passed"
             },
             "line": 54,
             "name": "API Response is asserted for counts",
@@ -1028,7 +767,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1736004,
+              "duration": 681275,
               "status": "passed"
             },
             "line": 3,
@@ -1060,7 +799,7 @@
           },
           {
             "result": {
-              "duration": 236690,
+              "duration": 229689,
               "status": "passed"
             },
             "line": 7,
@@ -1082,7 +821,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2565445,
+              "duration": 1063953,
               "status": "passed"
             },
             "line": 58,
@@ -1101,7 +840,7 @@
           },
           {
             "result": {
-              "duration": 377177132,
+              "duration": 840350752,
               "status": "passed"
             },
             "line": 60,
@@ -1113,8 +852,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:61)\r\n",
-              "duration": 539015,
+              "error_message": "java.lang.AssertionError: expected [200] but found [400]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:100)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:61)\r\n",
+              "duration": 5490394,
               "status": "failed"
             },
             "line": 61,
@@ -1154,7 +893,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3121688,
+              "duration": 826061,
               "status": "passed"
             },
             "line": 3,
@@ -1186,7 +925,7 @@
           },
           {
             "result": {
-              "duration": 281403,
+              "duration": 3978547,
               "status": "passed"
             },
             "line": 7,
@@ -1208,7 +947,7 @@
         "steps": [
           {
             "result": {
-              "duration": 1327436,
+              "duration": 2537247,
               "status": "passed"
             },
             "line": 66,
@@ -1227,7 +966,7 @@
           },
           {
             "result": {
-              "duration": 355963595,
+              "duration": 5386036366,
               "status": "passed"
             },
             "line": 68,
@@ -1239,8 +978,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:69)\r\n",
-              "duration": 399133,
+              "error_message": "java.lang.AssertionError: expected [200] but found [400]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:100)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:69)\r\n",
+              "duration": 1142704,
               "status": "failed"
             },
             "line": 69,
@@ -1280,7 +1019,7 @@
         "steps": [
           {
             "result": {
-              "duration": 703508,
+              "duration": 19116713,
               "status": "passed"
             },
             "line": 3,
@@ -1312,7 +1051,7 @@
           },
           {
             "result": {
-              "duration": 576343,
+              "duration": 315002,
               "status": "passed"
             },
             "line": 7,
@@ -1334,7 +1073,7 @@
         "steps": [
           {
             "result": {
-              "duration": 5605913,
+              "duration": 2441269,
               "status": "passed"
             },
             "line": 74,
@@ -1353,7 +1092,7 @@
           },
           {
             "result": {
-              "duration": 365951358,
+              "duration": 345781674,
               "status": "passed"
             },
             "line": 76,
@@ -1365,9 +1104,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:77)\r\n",
-              "duration": 1174017,
-              "status": "failed"
+              "duration": 392933,
+              "status": "passed"
             },
             "line": 77,
             "name": "API Response is asserted for Success Status Code",
@@ -1378,7 +1116,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 196793702,
+              "status": "passed"
             },
             "line": 78,
             "name": "API Response is asserted for counts",
@@ -1406,7 +1145,7 @@
         "steps": [
           {
             "result": {
-              "duration": 9381885,
+              "duration": 4228745,
               "status": "passed"
             },
             "line": 3,
@@ -1438,7 +1177,7 @@
           },
           {
             "result": {
-              "duration": 491430,
+              "duration": 296955,
               "status": "passed"
             },
             "line": 7,
@@ -1460,7 +1199,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3559381,
+              "duration": 42969128,
               "status": "passed"
             },
             "line": 82,
@@ -1479,7 +1218,7 @@
           },
           {
             "result": {
-              "duration": 374413556,
+              "duration": 320172136,
               "status": "passed"
             },
             "line": 84,
@@ -1491,9 +1230,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:85)\r\n",
-              "duration": 808932,
-              "status": "failed"
+              "duration": 227638,
+              "status": "passed"
             },
             "line": 85,
             "name": "API Response is asserted for Success Status Code",
@@ -1504,7 +1242,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 201749659,
+              "status": "passed"
             },
             "line": 86,
             "name": "API Response is asserted for counts",
@@ -1532,7 +1271,7 @@
         "steps": [
           {
             "result": {
-              "duration": 2573240,
+              "duration": 1022527,
               "status": "passed"
             },
             "line": 3,
@@ -1564,7 +1303,7 @@
           },
           {
             "result": {
-              "duration": 514402,
+              "duration": 280139,
               "status": "passed"
             },
             "line": 7,
@@ -1586,7 +1325,7 @@
         "steps": [
           {
             "result": {
-              "duration": 14179277,
+              "duration": 2252596,
               "status": "passed"
             },
             "line": 90,
@@ -1605,7 +1344,7 @@
           },
           {
             "result": {
-              "duration": 361096128,
+              "duration": 330268622,
               "status": "passed"
             },
             "line": 92,
@@ -1617,9 +1356,8 @@
           },
           {
             "result": {
-              "error_message": "java.lang.AssertionError: expected [200] but found [404]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:372)\r\n\tat org.testng.Assert.assertEquals(Assert.java:382)\r\n\tat com.albertsons.api.cucumberStepDefinitions.ParentChildParams.assertStatusCode(ParentChildParams.java:99)\r\n\tat ✽.API Response is asserted for Success Status Code(src/test/resources/OfferSearchParentChild.feature:93)\r\n",
-              "duration": 409798,
-              "status": "failed"
+              "duration": 677993,
+              "status": "passed"
             },
             "line": 93,
             "name": "API Response is asserted for Success Status Code",
@@ -1630,7 +1368,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 22656390,
+              "status": "passed"
             },
             "line": 94,
             "name": "API Response is asserted for counts",

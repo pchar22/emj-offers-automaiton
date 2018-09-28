@@ -84,7 +84,7 @@ public class BaseApiTest extends ConfigTestBase {
               given().log().all().params(queryParams).when().get(restServiceUri).then().extract().response();
         } else if (getCallParamsProcess.equalsIgnoreCase("headers")) {
           response =
-              given().log().uri().headers(headerParams).when().get(restServiceUri).then().log().body().extract().response();
+              given().log().uri().headers(headerParams).when().get(restServiceUri).then().extract().response();
         } else if (getCallParamsProcess.equalsIgnoreCase("path")) {
           // Below is the method call to append {storeId} to RequestURI
           restServiceUri = buildPathParameter(restServiceUri, pathParamsNames);
