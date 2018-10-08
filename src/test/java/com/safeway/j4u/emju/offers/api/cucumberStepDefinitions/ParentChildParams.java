@@ -33,189 +33,253 @@ import org.testng.annotations.Test;
         /**AUTHOR :: PUSHPAVALLI CHAR **/
 
 public class ParentChildParams extends BaseApiTest {
+    private String testCaseName;
+    private OfferSearch offerSearchExpected;
+    private OfferSearch offerSearchActual;
+    public Response response;
+    private Map<String, String> env;
 
+            /** Initialize before each test. */
+    @BeforeClass(alwaysRun = true)
+    @Given("^The Test Environment is Defined$")
+    public void beforeMethod(Map<String, String> env) throws Exception {
+        this.env = env;
+        String currentTestEnv = env.get("currentTestEnvironemnt");
+        String apiGroupName = env.get("apiGroupName");
+        String apiName = env.get("apiName");
+        setupSuite(currentTestEnv,apiGroupName,apiName);
+    }
+
+            /** Initialize before each test. */
+    @BeforeMethod(alwaysRun = true)
+    @And("^Parameters are intialized$")
+    public void parametersAreIntialized()  {
+        queryParams = new HashMap<String, Object>();
+        headerParams = new HashMap<String, Object>();
+        authenticatedGalleryEndpoint =
+                dataExtractor.getTestEnvironmentEndPoint(GlobalConstants.testEnvironment);
+    }
     @When("^Business User searches offers using offerStatus$")
-    public void testGetOfferSearchByOfferStatus(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+    public void businessUserSearchesOffersUsingOfferStatus(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
+        headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q") + ResourceEndpointUri.FACET_DELIMITER;
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+    }
+
+    @Test()
+    @Then("^API Response is extracted$")
+    public void apiResponseIsExtracted() {
+        // Need to set Proxy if connected to Safeway Network
+        setProxy();
+        setSslConfig();
+        // Invoke the service
+         response =
+                invokeService(
+                        HTTPMethod.GET,
+                        authenticatedGalleryEndpoint,
+                        null,
+                        null,
+                        headerParams,
+                        null,
+                        GlobalConstants.GetCallArgs.HEADERPARAM.toString(),
+                        null,
+                        null);
+    }
+    @Test()
+    @And("^API Response is asserted for Success Status Code$")
+    public void assertStatusCode(){
+        Assert.assertEquals(response.getStatusCode(),HttpStatus.SC_OK);
+
     }
 
     @Test()
     @And("^API Response is asserted for counts$")
-    public void assertCount(){
-        System.out.println(response.getBody());
-        int countofOffers = response.jsonPath().getList("offers").size();
-        int facetcount = response.jsonPath().get("totalCount");
-        Assert.assertTrue(countofOffers>=facetcount);
+    public void assertCount(Map<String, Integer> counts){
+        int expectedCount = response.jsonPath().getList("offers").size();
+
+        int actualCount = Integer.parseInt((counts.get("counts").toString()));;
+        Assert.assertTrue(actualCount>=actualCount);
     }
     @Test()
     @When("^Business User searches offers using ExternalOfferID$")
     public void testGetOfferSearchByExternalOfferId(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
+        headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
     @When("^Business User searches offers using StoreID$")
-        public void testGetOfferSearchByStoreId(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+        public void businessUserSearchesOffersUsingStoreID(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
+        headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
         headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
-    @When("^Business User searches offers using PostalCode$")
-        public void testGetOfferSearchByPostalCode(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+    @When("^Business User searches offers using ZipCode$")
+        public void businessUserSearchesOffersUsingZipCode(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
+        headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
     @When("^Business User searches offers using Start Date$")
-    public void testGetOfferSearchByStartDate(List<String> methodName) throws UnsupportedEncodingException {
-        setTestCaseName(methodName.get(0));
+    public void businessUserSearchesOffersUsingStartDate(List<String> methodName) throws UnsupportedEncodingException {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 
-  @When("^Business User searches offers using End Date$")
-  public void testGetOfferSearchByEndDate(List<String> methodName)
-      throws UnsupportedEncodingException {
-    setTestCaseName(methodName.get(0));
-    currentTsDataRowsJsonArray =
-        dataExtractor.getJSONParseTestData(
-            GlobalConstants.testEnvironment,
-            GlobalConstants.currentTestAPIGroupName,
-            GlobalConstants.currentTestAPI,
-            getTestCaseName());
-    currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
-    queryParams.put("q", currentTsJsonObject.get("q"));
-    headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
-    authenticatedGalleryEndpoint +=
-        ResourceEndpointUri.QUERY_DELIMITER
-            + URLEncoder.encode(currentTsJsonObject.get("q").toString(), "UTF-8");
+            @When("^Business User searches offers using End Date$")
+    public void businessUserSearchesOffersUsingEndDate(List<String> methodName) throws UnsupportedEncodingException {
+                testCaseName = methodName.get(0);
+                currentTsDataRowsJsonArray =
+                        dataExtractor.getJSONParseTestData(
+                                GlobalConstants.testEnvironment,
+                                GlobalConstants.currentTestAPIGroupName,
+                                GlobalConstants.currentTestAPI,
+                                testCaseName);
+                currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
+                queryParams.put("q", currentTsJsonObject.get("q"));
+                headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+                headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
+                authenticatedGalleryEndpoint +=
+                        ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
             }
-    @When("^Business User searches offers using Offer Program Code$")
-    public void testGetOfferSearchByOfferProgramCode(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+
+            @When("^Business User searches offers using Offer Program Code$")
+    public void businessUserSearchesOffersUsingOfferProgramCode(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
-//    /*Child Param Test Scenarios*/
-    @When("^Business User searches offers using StartDate & PostalCode$")
-    public void testGetOfferSearchByStartDateandPostalCode(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+    /*Child Param Test Scenarios*/
+    @When("^Business User searches offers using ZipCode & Offerstatus$")
+    public void businessUserSearchesOffersUsingZipCodeOfferstatus(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
-
-    @When("^Business User searches offers using EndDate & StartDate$")
-    public void testGetOfferSearchByEndDateandStartDate(List<String> methodName) {
-        setTestCaseName(methodName.get(0));
+    /*Child Param Test Scenarios*/
+    @When("^Business User searches offers using ExternalOfferId & Offerstatus$")
+    public void businessUserSearchesOffersUsingExternalOfferIdOfferstatus(List<String> methodName) {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q");
     }
 
-    @When("^Business User searches offers using OfferStatus & EndDate$")
-    public void testGetOfferSearchByOfferStatusandEnddate(List<String> methodName) throws UnsupportedEncodingException {
-        setTestCaseName(methodName.get(0));
+    @When("^Business User searches offers using EndDate & Offerstatus$")
+    public void businessUserSearchesOffersUsingEndDateOfferstatus(List<String> methodName) throws UnsupportedEncodingException {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 
-    @When("^Business User searches offers using StoreId & ProgramCode$")
-    public void businessUserSearchesOffersUsingStoreIdProgramCode(List<String> methodName) throws UnsupportedEncodingException {
-        setTestCaseName(methodName.get(0));
+    @When("^Business User searches offers using StartDate & Offerstatus$")
+    public void businessUserSearchesOffersUsingStartDateOfferstatus(List<String> methodName) throws UnsupportedEncodingException {
+        testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
                         GlobalConstants.testEnvironment,
                         GlobalConstants.currentTestAPIGroupName,
                         GlobalConstants.currentTestAPI,
-                        getTestCaseName());
+                        testCaseName);
         currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
         queryParams.put("q", currentTsJsonObject.get("q"));
         headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        headerParams.put(GlobalConstants.CONTENTTYPE, "application/vnd.safeway.v1+json");
         authenticatedGalleryEndpoint +=
-                 ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
+                ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 }

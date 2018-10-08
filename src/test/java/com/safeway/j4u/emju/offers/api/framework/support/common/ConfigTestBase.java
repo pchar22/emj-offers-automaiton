@@ -17,7 +17,7 @@ public class ConfigTestBase {
 
   public AppGeneric appGeneric;
   public Generic generic;
-  public static DataExtractor dataExtractor;
+  public DataExtractor dataExtractor;
   public GlobalConstants globalConstants;
   private String environment = null;
   private String currentApiGroupName = null;

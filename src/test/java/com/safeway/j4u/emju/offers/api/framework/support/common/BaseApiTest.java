@@ -39,19 +39,18 @@ public class BaseApiTest extends ConfigTestBase {
   protected JSONObject currentTsJsonObject;
   protected JSONObject appAuthEnvDataJsonObject;
   protected String expectedJsonString;
-  protected static  String authenticatedGalleryEndpoint;
+  protected String authenticatedGalleryEndpoint;
   protected String apiEndPoint;
   protected JsonObject expectedJsonObject;
   protected JsonObject actualJsonObject;
   protected JsonParser jsonParser;
-  protected static Map<String, Object> queryParams;
-  protected static Map<String, Object> headerParams;
+  protected Map<String, Object> queryParams;
+  protected Map<String, Object> headerParams;
   protected Map<String, Object> formParams;
   protected Map<String, Object> pathParams;
   protected List<String> pathParam;
   protected List<String> pathParamsNames;
-  protected static String testCaseName;
-  public static Response response = null;
+
   /**
    * Invokes the service using Rest-Assured API's.
    *
@@ -75,7 +74,7 @@ public class BaseApiTest extends ConfigTestBase {
       String getCallParamsProcess,
       List<String> pathParamsNames,
       File bodyDataFile) {
-
+    Response response = null;
     //RestAssured.useRelaxedHTTPSValidation();
     RestAssured.urlEncodingEnabled = false;
     //resetProxy();
@@ -88,7 +87,6 @@ public class BaseApiTest extends ConfigTestBase {
         } else if (getCallParamsProcess.equalsIgnoreCase("headers")) {
           response =
               given().headers(headerParams).when().get(restServiceUri).then().extract().response();
-
         } else if (getCallParamsProcess.equalsIgnoreCase("path")) {
           // Below is the method call to append {storeId} to RequestURI
           restServiceUri = buildPathParameter(restServiceUri, pathParamsNames);
@@ -97,8 +95,9 @@ public class BaseApiTest extends ConfigTestBase {
         } else if (getCallParamsProcess.equalsIgnoreCase("QueryHeaders")) {
           response =
               given()
+
                   .params(queryParams)
-                  .proxy(restServiceUri)
+          .proxy(restServiceUri)
                   .headers(headerParams)
                   .when()
                   .get(restServiceUri)
@@ -577,7 +576,7 @@ public class BaseApiTest extends ConfigTestBase {
   /** Set the proxy globally. */
   protected void setProxy() {
     // RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
-//     RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
+     RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
     //RestAssured.proxy("phxproxyvip.safeway.com", Integer.parseInt("8080"));
   }
 
@@ -608,12 +607,5 @@ public class BaseApiTest extends ConfigTestBase {
     appAuthData.put(
         "X-IBM-Client-Secret", appAuthEnvDataJsonObject.get("X-IBM-Client-Secret").toString());
     return appAuthData;
-  }
-
-  public void setTestCaseName(String name){
-    this.testCaseName=name;
-  }
-  public String getTestCaseName(){
-   return testCaseName;
   }
 }
