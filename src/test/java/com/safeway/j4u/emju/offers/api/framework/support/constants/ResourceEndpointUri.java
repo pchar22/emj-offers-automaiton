@@ -4,7 +4,9 @@ package com.safeway.j4u.emju.offers.api.framework.support.constants;
 
 public final class ResourceEndpointUri {
   public static final String SLASH_DELIMITER = "/";
+  public static final String FACET_DELIMITER = "&includeTotalCount=true&includeFacetCounts=true";
   public static final String QUERY_DELIMITER = "?q=";
+
   public static final String GALLERY_CORE = "/J4UProgram1/polaris/services/gallery";
   public static final String GALLERY_OFFERS = "/offers";
   public static final String GALLERY_ANONYMOUS =
@@ -70,6 +72,8 @@ public final class ResourceEndpointUri {
 
   //OfferSearch endpoint
   public static final String OFFER_SEARCH="/offers";
+
+
 
   public ResourceEndpointUri() {
     /* This class should not be instantiated */
