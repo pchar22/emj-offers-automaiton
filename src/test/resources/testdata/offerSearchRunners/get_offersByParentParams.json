@@ -2,7 +2,7 @@
   "dev": {
     "testGetOfferSearchByOfferStatus": [
       {
-        "q": "offerStatus=E"
+        "q": "offerStatus=L"
       }
     ],
     "testGetOfferSearchByOfferId": [
