@@ -18,7 +18,10 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -69,11 +72,13 @@ public class BackgroundStepDefPOST extends BaseApiTest {
   }
 
   @Then("^API Response is extracted$")
-  public void apiResponseIsExtracted() {
+  public void apiResponseIsExtracted() throws UnsupportedEncodingException{
     // Need to set Proxy if connected to Safeway Network
     setProxy();
     setSslConfig();
     // Invoke the service
+
+      URLEncoder.encode(authenticatedGalleryEndpoint, "UTF-8");
     response =
             invokeService(
                     HTTPMethod.GET,
@@ -88,6 +93,33 @@ public class BackgroundStepDefPOST extends BaseApiTest {
   public void assertStatusCodeGet(){
     Assert.assertEquals(response.getStatusCode(),HttpStatus.SC_OK);
   }
+
+  @And("^API Response is asserted for facetcount$")
+
+    public void assertCounts() {
+        System.out.println(response.getBody());
+
+        HashMap<String, String> count = response.jsonPath().get("facetCounts.categories");
+        int categoryCount = 0;
+
+        Iterator entries = count.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry entry = (Map.Entry) entries.next();
+            String key = (String) entry.getKey();
+
+            if(!key.equals("Test 1"))
+            {
+                int value = (int)entry.getValue();
+                categoryCount += value;
+            }
+        }
+        System.out.println(categoryCount);
+
+
+        int facetcount = response.jsonPath().get("totalCount");
+        Assert.assertTrue(categoryCount<=facetcount);
+
+    }
   @And("^API Response is asserted for ALL attributes$")
   public void apiResponseIsAssertedForALLAttributes(List<String> fileName){
     String resourcePath = fileName.get(0);

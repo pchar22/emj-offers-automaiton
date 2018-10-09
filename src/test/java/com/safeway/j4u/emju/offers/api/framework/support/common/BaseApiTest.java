@@ -577,7 +577,7 @@ public class BaseApiTest extends ConfigTestBase {
   /** Set the proxy globally. */
   protected void setProxy() {
     // RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
-//     RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
+    // RestAssured.proxy("xphxbc02-int.safeway.com", Integer.parseInt("8080"));
     //RestAssured.proxy("phxproxyvip.safeway.com", Integer.parseInt("8080"));
   }
 

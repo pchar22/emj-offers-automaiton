@@ -24,11 +24,11 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class GrandChildandGrnadChildPlusScenarios extends BaseApiTest {
+public class GrandChildScenarios extends BaseApiTest {
 
-
-    @When("^Business User searches offers using Startdate & OfferProgramcode & offerStatus$")
-    public void testGetOfferSearchByStartdateAndOfferProgramCodeAndOfferStatus(List<String> methodName) throws UnsupportedEncodingException {
+    /**Grandchild & GrandChild++ Scenarios **/
+    @When("^Business User searches offers using ExternalOfferID and StatusCode and ProgramCode$")
+    public void businessUserSearchesOffersUsingExternalOfferIDStatusCodeProgramCode(List<String> methodName) throws UnsupportedEncodingException {
         testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
@@ -43,8 +43,8 @@ public class GrandChildandGrnadChildPlusScenarios extends BaseApiTest {
                 ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 
-    @When("^Business User searches offers using PostalCode and StoreId and Enddate$")
-    public void testGetOfferSearchByPostalCodeAndStoreIdAndEnddate(List<String> methodName) throws UnsupportedEncodingException {
+    @When("^Business User searches offers ExternalOfferID, OfferStatus, EndDate and StoreId$")
+    public void businessUserSearchesOffersExternalOfferIDOfferStatusEndDateStoreId(List<String> methodName) throws UnsupportedEncodingException {
         testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
@@ -59,8 +59,8 @@ public class GrandChildandGrnadChildPlusScenarios extends BaseApiTest {
                ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 
-    @When("^Business User searches offers using StartDate and EndDate and PostalCd and OfferStatus and StoreId and OfferProgramcode$")
-    public void testGetOfferSearchByStartDateAndEndDateAndPostalCodeAndOfferStatusAndStoreIdAndOfferProgramcode(List<String> methodName) throws UnsupportedEncodingException {
+    @When("^Business User searches offers using OfferStatus, PriceCode and StoreID and ExternalOfferID$")
+    public void businessUserSearchesOffersUsingOfferStatusPriceCodeStoreIDExternalOfferID(List<String> methodName) throws UnsupportedEncodingException {
         testCaseName = methodName.get(0);
         currentTsDataRowsJsonArray =
                 dataExtractor.getJSONParseTestData(
@@ -75,6 +75,20 @@ public class GrandChildandGrnadChildPlusScenarios extends BaseApiTest {
                 ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
     }
 
-
+    @When("^Business User searches offers using EndDate and StoreID and ExternalOfferID$")
+    public void businessUserSearchesOffersUsingEndDateStoreIDExternalOfferID(List<String> methodName) throws UnsupportedEncodingException {
+        testCaseName = methodName.get(0);
+        currentTsDataRowsJsonArray =
+                dataExtractor.getJSONParseTestData(
+                        GlobalConstants.testEnvironment,
+                        GlobalConstants.currentTestAPIGroupName,
+                        GlobalConstants.currentTestAPI,
+                        testCaseName);
+        currentTsJsonObject = (JSONObject) currentTsDataRowsJsonArray.get(0);
+        queryParams.put("q", currentTsJsonObject.get("q"));
+        headerParams.put(GlobalConstants.CACHECONTROL, "no-cache");
+        authenticatedGalleryEndpoint +=
+                ResourceEndpointUri.QUERY_DELIMITER +URLEncoder.encode(currentTsJsonObject.get("q").toString(),"UTF-8");
+    }
 
 }

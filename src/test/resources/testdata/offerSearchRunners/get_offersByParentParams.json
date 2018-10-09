@@ -2,7 +2,7 @@
   "dev": {
     "testGetOfferSearchByOfferStatus": [
       {
-        "q": "offerStatus=L"
+        "q": "offerStatus=E"
       }
     ],
     "testGetOfferSearchByOfferId": [
@@ -27,12 +27,12 @@
     ],
     "testGetOfferSearchByStartDate":[
       {
-        "q":"startDt=[2018-09-01T00:00:00Z TO *]"
+        "q":"startDt=[2018-08-23T00:00:00Z TO *]"
       }
     ],
     "testGetOfferSearchByEndDate":[
       {
-        "q":"endDt=[* TO 2018-12-31T09:00:00Z]"
+        "q":"endDt=[* TO 2018-12-31T00:00:00Z]"
       }
     ],
     "testGetOfferSearchByOfferProgramCode":[

@@ -1,10 +1,10 @@
 package com.safeway.j4u.emju.offers.api.offerSearchRunners;
 
 import cucumber.api.CucumberOptions;
-        import cucumber.api.testng.AbstractTestNGCucumberTests;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-    features = "src/test/resources/OfferLoadNegativeScenarios.feature",
+    features = "src/test/resources/FacetCountOfferSearchParentChild.feature",
     glue = "com.safeway.j4u.emju.offers.api.cucumberStepDefinitions",
     plugin = {
       "json:cucumber.runtime.formatter.JSONFormatter",
@@ -13,4 +13,4 @@ import cucumber.api.CucumberOptions;
     },
     dryRun = false,
     monochrome = true)
-public class RunCukesTest extends AbstractTestNGCucumberTests {}
+public class FacetCountRunCukesTest extends AbstractTestNGCucumberTests {}
