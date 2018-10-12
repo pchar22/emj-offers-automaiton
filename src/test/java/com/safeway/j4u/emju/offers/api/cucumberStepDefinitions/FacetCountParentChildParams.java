@@ -3,6 +3,7 @@ package com.safeway.j4u.emju.offers.api.cucumberStepDefinitions;
 import com.safeway.j4u.emju.offers.api.framework.support.common.BaseApiTest;
 import com.safeway.j4u.emju.offers.api.framework.support.constants.GlobalConstants;
 import com.safeway.j4u.emju.offers.api.framework.support.constants.ResourceEndpointUri;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import org.json.simple.JSONObject;
@@ -192,4 +193,10 @@ public void businessUserSearchesOffersUsingStoreIdProgramCode(List<String> metho
     authenticatedGalleryEndpoint +=
             ResourceEndpointUri.QUERY_DELIMITER + currentTsJsonObject.get("q") + ResourceEndpointUri.FACET_DELIMITER;
 }
+
+  @When("^User ([^\"]*) multiple Offers with different categorries$")
+  public void userLoadsMultipleOffersWithDifferentCategorries(String methodName)  {
+
+            testCaseName = methodName;
+    }
 }

@@ -11,6 +11,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java8.En;
 import io.restassured.response.Response;
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -20,10 +22,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BackgroundStepDefPOST extends BaseApiTest {
     private Map<String, String> env = new HashMap<>();
@@ -94,15 +93,15 @@ public class BackgroundStepDefPOST extends BaseApiTest {
     Assert.assertEquals(response.getStatusCode(),HttpStatus.SC_OK);
   }
 
-  @And("^API Response is asserted for facetcount$")
+  @And("^Sum of all facet counts should not exceed total count$")
 
-    public void assertCounts() {
+    public void assertfacetCounts() {
         System.out.println(response.getBody());
 
-        HashMap<String, String> count = response.jsonPath().get("facetCounts.categories");
-        int categoryCount = 0;
+        HashMap<String, String> facetcount = response.jsonPath().get("facetCounts.categories");
+        int categoryCountinfacet = 0;
 
-        Iterator entries = count.entrySet().iterator();
+        Iterator entries = facetcount.entrySet().iterator();
         while (entries.hasNext()) {
             Map.Entry entry = (Map.Entry) entries.next();
             String key = (String) entry.getKey();
@@ -110,16 +109,93 @@ public class BackgroundStepDefPOST extends BaseApiTest {
             if(!key.equals("Test 1"))
             {
                 int value = (int)entry.getValue();
-                categoryCount += value;
+                categoryCountinfacet += value;
             }
         }
-        System.out.println(categoryCount);
+        System.out.println(categoryCountinfacet);
 
 
-        int facetcount = response.jsonPath().get("totalCount");
-        Assert.assertTrue(categoryCount<=facetcount);
+        int totalcount = response.jsonPath().get("totalCount");
+        Assert.assertTrue(categoryCountinfacet<=totalcount);
 
     }
+
+    @And("^facetcount for each Category is  asserted against the API response$")
+    public void facetcountforeachcategoryisassertedagainstAPIResponse() {
+        System.out.println(response.getBody());
+
+        ArrayList<HashMap<String, String>>  categoriesinoffers =  response.jsonPath().get("offers.info.categories");
+
+        Map<String, String> categoryTemp = new HashMap<String, String>();
+//        MultiValuedMap<String, String> categoryTemp = new ArrayListValuedHashMap<>();
+
+        for(HashMap<String, String> categoryValue:categoriesinoffers){
+            categoryTemp.put(categoryValue.entrySet().iterator().next().getValue(), categoryValue.entrySet().iterator().next().getKey());
+        }
+
+        Map<String, String> category = categoryTemp;
+
+        Map<String, String> fcount = response.jsonPath().get("facetCounts.categories");
+        fcount.remove("Test 1");
+
+        int categoryCount = 0;
+        String categoryValue = null;
+        boolean result = true;
+
+        Iterator fentries = fcount.entrySet().iterator();
+      while (fentries.hasNext()) {
+          categoryCount = 0;
+          Map.Entry entry = (Map.Entry) fentries.next();
+          String fentriesKey = (String) entry.getKey();
+          int fentriesValue = (int) entry.getValue();
+
+          if (fentriesValue == 0) {
+            continue;
+          }
+
+          Iterator centries = category.entrySet().iterator();
+          while (centries.hasNext()) {
+            Map.Entry centry = (Map.Entry) centries.next();
+            categoryValue = (String) centry.getKey();
+
+            if(categoryValue.equalsIgnoreCase(fentriesKey)){
+                categoryCount++;
+            }
+          }
+
+          if(categoryCount==fentriesValue){
+              result &= true;
+          }else{
+              result &= false;
+          }
+      }
+
+      Assert.assertTrue(result, "Facet categories are matched in the categories");
+  }
+
+
+    @And("^Category with null count should not be displayed$")
+    public void categoryWithNullcountshouldNotbedisplayed(){
+        HashMap<String, String> count = response.jsonPath().get("facetCounts.categories");
+        boolean result = true;
+
+        Iterator entries = count.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry entry = (Map.Entry) entries.next();
+            int Value = (int) entry.getValue();
+
+            if(Value == 0){
+                result &= false;
+            }else{
+                result &=true;
+            }
+        }
+        Assert.assertTrue(result, "Category with null value is not displayed");
+    }
+
+
+
+
   @And("^API Response is asserted for ALL attributes$")
   public void apiResponseIsAssertedForALLAttributes(List<String> fileName){
     String resourcePath = fileName.get(0);

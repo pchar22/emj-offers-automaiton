@@ -4,7 +4,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-    features = "src/test/resources/FacetCountOfferSearchParentChild.feature",
+    features = "src/test/resources/OfferLoadFacet.feature",
     glue = "com.safeway.j4u.emju.offers.api.cucumberStepDefinitions",
     plugin = {
       "json:cucumber.runtime.formatter.JSONFormatter",
