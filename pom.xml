@@ -489,7 +489,7 @@
 								</property>
 							</properties>
 							<suiteXmlFiles>
-								<suiteXmlFile>src/test/java/com/safeway/j4u/emju/offers/api/tests/OfferLoad/OfferLoad.xml</suiteXmlFile>
+								<suiteXmlFile>src/test/java/com/safeway/j4u/emju/offers/api/tests/OfferLoad/FacetCountOfferLoad.xml</suiteXmlFile>
 							</suiteXmlFiles>
 						</configuration>
 					</plugin>

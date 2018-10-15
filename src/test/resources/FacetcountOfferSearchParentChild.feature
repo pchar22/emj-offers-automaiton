@@ -12,7 +12,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
 
@@ -22,16 +22,16 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
-
+#
   Scenario: Search offers using StoreID
     When Business User searches offers using StoreID
       |testGetOfferSearchByStoreId|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
   Scenario: Search offers using PostalCode
@@ -40,17 +40,17 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
-
+#
   Scenario: Search offers using Start Date
     When Business User searches offers using Start Date
       |testGetOfferSearchByStartDate|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
 
@@ -59,7 +59,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
       |testGetOfferSearchByEndDate|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
-    And Sum of all facet counts should not exceed total count
+#    And Sum of all facet counts should not exceed total count
 #    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
@@ -70,7 +70,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
 
@@ -82,7 +82,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
   Scenario: Search offers using OfferStatus and EndDate
@@ -91,7 +91,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
 
@@ -101,7 +101,7 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed
 
 
@@ -112,5 +112,5 @@ Feature: OfferSearch "Parent & Child Parameters" Test Scenarios with "NO AUTH"
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And Sum of all facet counts should not exceed total count
-#    And facetcount for each Category is  asserted against the API response
+    And facetcount for each Category is  asserted against the API response
 #    And Category with null count should not be displayed

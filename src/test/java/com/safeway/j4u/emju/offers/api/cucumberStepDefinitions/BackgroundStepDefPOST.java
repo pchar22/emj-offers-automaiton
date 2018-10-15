@@ -23,6 +23,13 @@ import java.io.FileWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
+
 
 public class BackgroundStepDefPOST extends BaseApiTest {
     private Map<String, String> env = new HashMap<>();
@@ -126,26 +133,26 @@ public class BackgroundStepDefPOST extends BaseApiTest {
 
         ArrayList<HashMap<String, String>>  categoriesinoffers =  response.jsonPath().get("offers.info.categories");
 
-        Map<String, String> categoryTemp = new HashMap<String, String>();
-//        MultiValuedMap<String, String> categoryTemp = new ArrayListValuedHashMap<>();
+        MultiValuedMap<String, String> category = new ArrayListValuedHashMap<>();
 
         for(HashMap<String, String> categoryValue:categoriesinoffers){
-            categoryTemp.put(categoryValue.entrySet().iterator().next().getValue(), categoryValue.entrySet().iterator().next().getKey());
+            categoryValue.remove("9", "Test 1");
+            if (categoryValue.size() > 0) {
+               category.put(categoryValue.entrySet().iterator().next().getValue(), categoryValue.entrySet().iterator().next().getKey());
+            }
         }
 
-        Map<String, String> category = categoryTemp;
-
-        Map<String, String> fcount = response.jsonPath().get("facetCounts.categories");
-        fcount.remove("Test 1");
+        Map<String, String> facetCount = response.jsonPath().get("facetCounts.categories");
+        facetCount.remove("Test 1");
 
         int categoryCount = 0;
         String categoryValue = null;
         boolean result = true;
 
-        Iterator fentries = fcount.entrySet().iterator();
-      while (fentries.hasNext()) {
+        Iterator facetentries = facetCount.entrySet().iterator();
+      while (facetentries.hasNext()) {
           categoryCount = 0;
-          Map.Entry entry = (Map.Entry) fentries.next();
+          Map.Entry entry = (Map.Entry) facetentries.next();
           String fentriesKey = (String) entry.getKey();
           int fentriesValue = (int) entry.getValue();
 
@@ -153,15 +160,19 @@ public class BackgroundStepDefPOST extends BaseApiTest {
             continue;
           }
 
-          Iterator centries = category.entrySet().iterator();
-          while (centries.hasNext()) {
-            Map.Entry centry = (Map.Entry) centries.next();
-            categoryValue = (String) centry.getKey();
+          Collection<Entry<String, String>> collectionEntries = category.entries();
 
-            if(categoryValue.equalsIgnoreCase(fentriesKey)){
-                categoryCount++;
-            }
+          Iterator<Entry<String, String>> iterator = collectionEntries.iterator();
+
+
+          while(iterator.hasNext()) {
+              Entry<String, String> entry1 = iterator.next();
+              categoryValue = (String) entry1.getKey();
+              if(categoryValue.equalsIgnoreCase(fentriesKey)){
+                  categoryCount++;
+              }
           }
+
 
           if(categoryCount==fentriesValue){
               result &= true;
