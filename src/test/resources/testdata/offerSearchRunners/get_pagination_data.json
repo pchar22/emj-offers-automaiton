@@ -1,93 +1,93 @@
 {
   "dev": {
-    "OfferSearchStoreIdLimitOne": [
+    "OfferSearchStoreIdLimit": [
       {
         "q": "storeId=200200;limit=1"
       }
     ],
-    "OfferSearchStoreIdLimitTwo": [
+    "OfferSearchStoreIdLimit": [
       {
         "q": "storeId=200200;limit=2"
       }
     ],
-    "OfferSearchStoreIdLimitThree": [
+    "OfferSearchStoreIdLimit": [
       {
         "q": "storeId=200200;limit=3"
       }
     ],
-    "OfferSearchStoreIdLimitFour": [
+    "OfferSearchStoreIdLimit": [
       {
         "q": "storeId=200200;limit=4"
       }
     ],
-    "OfferSearchStoreIdLimitFive": [
+    "OfferSearchStoreIdLimit": [
       {
         "q": "storeId=200200;limit=5"
       }
     ],
-    "OfferSearchStoreIdLimitTen":[
+    "OfferSearchStoreIdLimit":[
       {
-        "q": "storeId=200200;limit=10"
+        "q": "storeId=200200;limit=5"
       }
     ],
-    "OfferSearchOfferStatusLimitFive":[
+    "OfferSearchOfferStatusLimit":[
       {
-        "q":"offerStatus=A;limit=5"
+        "q":"offerStatus=A;limit=3"
       }
     ],
-    "OfferSearchStartDateLimitFive" :[
+    "OfferSearchStartDateLimit" :[
       {
-        "q":"startDt=[2018-08-20T00:00:00Z TO *];limit=5"
+        "q":"startDt=[2018-08-20T00:00:00Z TO *];limit=2"
       }
     ],
-    "OfferSearchEndDateLimitTwenty" :[
+    "OfferSearchEndDateLimit" :[
       {
-        "q":"endDt=[* TO 2018-12-31T09:00:00Z];limit=20"
+        "q":"endDt=[* TO 2018-12-31T09:00:00Z];limit=6"
       }
     ],
-    "OfferSearchProgramCodeLimitFive" :[
+    "OfferSearchProgramCodeLimit" :[
       {
         "q":"offerProgramCd=SC;limit=5"
       }
     ],
-    "OfferSearchStartDateStoreIdLimitThree" :[
+    "OfferSearchStartDateStoreIdLimit" :[
       {
-        "q":"startDt=[2018-08-20T00:00:00Z TO *];storeId=200200;limit=3"
+        "q":"startDt=[2018-08-20T00:00:00Z TO *];storeId=200200;limit=2"
       }
     ],
-    "OfferSearchOfferStatusStoreIdLimitFive":[
+    "OfferSearchOfferStatusStoreIdLimit":[
       {
         "q":"offerStatus=A;storeId=200200;limit=5"
       }
     ],
-    "OfferSearchEndDateStoreIdLimitTen" :[
+    "OfferSearchEndDateStoreIdLimit" :[
       {
         "q":"endDt=[* TO 2018-12-31T09:00:00Z];storeId=200200;limit=10"
       }
     ],
-    "OfferSearchStartDateEndDateLimitThree" :[
+    "OfferSearchStartDateEndDateLimit" :[
       {
-        "q":"startDt=[2018-08-20T00:00:00Z TO *];endDt=[* TO 2018-12-31T09:00:00Z];limit=3"
+        "q":"startDt=[2018-08-20T00:00:00Z TO *];endDt=[* TO 2018-12-31T09:00:00Z];limit=2"
       }
     ],
-    "OfferSearchStoreIdProgramCodeOfferStatusLimitFive":[
+    "OfferSearchStoreIdProgramCodeOfferStatusLimit":[
       {
-        "q":"storeId=200200;offerProgramCd=SC;offerStatus=A;limit=5"
+        "q":"storeId=200200;offerProgramCd=SC;offerStatus=A;limit=3"
       }
     ],
-    "OfferSearchStoreIdStartDateOfferStatusLimitFive":[
+    "OfferSearchStoreIdStartDateOfferStatusLimit":[
       {
-        "q":"storeId=200200;startDt=[2018-08-20T00:00:00Z TO *]offerStatus=A;limit=5"
+        "q":"storeId=200200;startDt=[2018-08-20T00:00:00Z TO *];offerStatus=A;limit=2"
       }
     ],
-    "OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimitFive":[
+    "OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimit":[
       {
-        "q":"storeId=200200;startDt=[2018-08-20T00:00:00Z TO *]offerStatus=A;offerProgramCd=SC;limit=5"
+        "q":"storeId=200200;startDt=[2018-08-20T00:00:00Z TO *];offerStatus=A;offerProgramCd=SC;limit=2"
       }
     ],
-    "OfferSearchStartDateEndDateStoreIdOfferStatusLimitThree":[
+    "OfferSearchStartDateEndDateStoreIdOfferStatusLimit":[
       {
-        "q":"startDt=[2018-08-20T00:00:00Z TO *];endDt=[* TO 2018-12-31T09:00:00Z];storeId=300300;offerStatus=A;limit=3"
+        "q":"startDt=[2018-08-20T00:00:00Z TO *];endDt=[* TO 2018-12-31T09:00:00Z];storeId=300300;offerStatus=A;limit=2"
       }
     ]
   }

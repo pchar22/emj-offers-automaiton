@@ -9,99 +9,85 @@ Feature: Offer Search Pagination ALL Positive Test Scenarios
 #   Parent Param Scenarios
     Scenario: StoreId Search with Limit
     Given Business user searches offers using StoreIdAndlimit
-      |OfferSearchStoreIdLimitTen|
+      |OfferSearchStoreIdLimit|
       Then API Response is extracted
       And API Response is asserted for Success Status Code
       And API Response is read for a valid SearchID
        And API Response is asserted for counts matching the limit
           |counts|10|
       And Forward page search is called One Page at a time
-        |InitialPage|2|
       And Previous page search is called One Page at a time
-        |LastPage|5|
 
   Scenario: Search by OfferStatus with Limit
     Given Business user searches offers using OfferStatus with limit
-      |OfferSearchOfferStatusLimitFive|
+      |OfferSearchOfferStatusLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
      And API Response is asserted for counts matching the limit
       |counts|5|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|5|
 
   Scenario: Search by StartDate with Limit
     Given Business user searches offers using StartDate with limit
-      |OfferSearchStartDateLimitFive|
+      |OfferSearchStartDateLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
      And API Response is asserted for counts matching the limit
        |counts|5|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|4|
 
   Scenario: Search by EndDate with Limit
     Given Business user searches offers using EndDate with limit
-      |OfferSearchEndDateLimitTwenty|
+      |OfferSearchEndDateLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
      And API Response is asserted for counts matching the limit
        |counts|20|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|3|
 
   Scenario: Search by OfferProgramCode with Limit
     Given Business user searches offers using Offer Program Code with limit
-      |OfferSearchProgramCodeLimitFive|
+      |OfferSearchProgramCodeLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
      And API Response is asserted for counts matching the limit
        |counts|5|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|9|
 
 #    Child Param Scenarios
   Scenario: Search by StartDate And StoreId with Limit
     Given Business user searches offers using StartDate And StoreId with limit
-      |OfferSearchStartDateStoreIdLimitThree|
+      |OfferSearchStartDateStoreIdLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
      And API Response is asserted for counts matching the limit
        |counts|3|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|4|
 
   Scenario: Search by StartDate And EndDate with Limit
     Given Business user searches offers using StartDate And EndDate with limit
-      |OfferSearchStartDateEndDateLimitThree|
+      |OfferSearchStartDateEndDateLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
     And API Response is asserted for counts matching the limit
       |counts|3|
     And Forward page search is called One Page at a time
-      |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|6|
 
   Scenario: Search by OfferStatus And StoreID with Limit
     Given Business user searches offers using OfferStatus StoreID with limit
-      |OfferSearchOfferStatusStoreIdLimitFive|
+      |OfferSearchOfferStatusStoreIdLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
@@ -110,11 +96,11 @@ Feature: Offer Search Pagination ALL Positive Test Scenarios
     And Forward page search is called One Page at a time
       |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|5|
+      |LastPage|3|
 
   Scenario: Search by EndDate And StoreId with Limit
     Given Business user searches offers using EndDate And StoreId with limit
-      |OfferSearchEndDateStoreIdLimitTen|
+      |OfferSearchEndDateStoreIdLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
@@ -123,65 +109,12 @@ Feature: Offer Search Pagination ALL Positive Test Scenarios
     And Forward page search is called One Page at a time
       |InitialPage|2|
     And Previous page search is called One Page at a time
-      |LastPage|6|
+      |LastPage|3|
 
 #    GrandChild Param Scenarios
   Scenario: Search by StoreId ProgramCode and OfferStatus
     Given Business user searches offers using StoreId ProgramCode and OfferStatus with limit
-    |OfferSearchStoreIdProgramCodeOfferStatusLimitFive|
-    Then API Response is extracted
-    And API Response is asserted for Success Status Code
-    And API Response is read for a valid SearchID
-    And API Response is asserted for counts matching the limit
-      |counts|5|
-    And Forward page search is called One Page at a time
-      |InitialPage|2|
-    And Previous page search is called One Page at a time
-      |LastPage|5|
-
-  Scenario: Search by StoreId StartDate and OfferStatus
-    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
-      |OfferSearchStoreIdStartDateOfferStatusLimitFive|
-    Then API Response is extracted
-    And API Response is asserted for Success Status Code
-    And API Response is read for a valid SearchID
-    And API Response is asserted for counts matching the limit
-      |counts|5|
-    And Forward page search is called One Page at a time
-      |InitialPage|2|
-    And Previous page search is called One Page at a time
-      |LastPage|5|
-
-  Scenario: Search by StoreId StartDate and OfferStatus
-    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
-      |OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimitFive|
-    Then API Response is extracted
-    And API Response is asserted for Success Status Code
-    And API Response is read for a valid SearchID
-    And API Response is asserted for counts matching the limit
-      |counts|5|
-    And Forward page search is called One Page at a time
-      |InitialPage|2|
-    And Previous page search is called One Page at a time
-      |LastPage|5|
-
-#  GrandChildPlus Param Scenarios
-  Scenario: Search by StoreId StartDate and OfferStatus and OfferProgramCode
-    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
-      |OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimitFive|
-    Then API Response is extracted
-    And API Response is asserted for Success Status Code
-    And API Response is read for a valid SearchID
-    And API Response is asserted for counts matching the limit
-      |counts|5|
-    And Forward page search is called One Page at a time
-      |InitialPage|2|
-    And Previous page search is called One Page at a time
-      |LastPage|5|
-
-  Scenario: Search by StartDate and EndDate and OfferStatus and StoreId
-    Given Business user searches offers using StartDate EndDate StoreId and OfferStatus with limit
-      |OfferSearchStartDateEndDateStoreIdOfferStatusLimitThree|
+    |OfferSearchStoreIdProgramCodeOfferStatusLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
     And API Response is read for a valid SearchID
@@ -192,18 +125,69 @@ Feature: Offer Search Pagination ALL Positive Test Scenarios
     And Previous page search is called One Page at a time
       |LastPage|4|
 
-  Scenario Outline: StoreID search with limit functionality
-    When Business user searches offers using StoreId And <Limit>
+  Scenario: Search by StoreId StartDate and OfferStatus
+    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
+      |OfferSearchStoreIdStartDateOfferStatusLimit|
     Then API Response is extracted
     And API Response is asserted for Success Status Code
-    And API Response is asserted for counts matching the limit <value>
-    Scenarios:
-      |Limit|value|
-      |OfferSearchStoreIdLimitOne|1|
-      |OfferSearchStoreIdLimitTwo|2|
-      |OfferSearchStoreIdLimitThree|3|
-      |OfferSearchStoreIdLimitFour|4 |
-      |OfferSearchStoreIdLimitFive|5 |
+    And API Response is read for a valid SearchID
+    And API Response is asserted for counts matching the limit
+      |counts|5|
+    And Forward page search is called One Page at a time
+      |InitialPage|2|
+    And Previous page search is called One Page at a time
+      |LastPage|4|
+
+  Scenario: Search by StoreId StartDate and OfferStatus
+    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
+      |OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimit|
+    Then API Response is extracted
+    And API Response is asserted for Success Status Code
+    And API Response is read for a valid SearchID
+    And API Response is asserted for counts matching the limit
+      |counts|5|
+    And Forward page search is called One Page at a time
+      |InitialPage|2|
+    And Previous page search is called One Page at a time
+      |LastPage|4|
+
+#  GrandChildPlus Param Scenarios
+  Scenario: Search by StoreId StartDate and OfferStatus and OfferProgramCode
+    Given Business user searches offers using StoreId StartDate and OfferStatus with limit
+      |OfferSearchStoreIdStartDateOfferStatusOfferProgramCodeLimit|
+    Then API Response is extracted
+    And API Response is asserted for Success Status Code
+    And API Response is read for a valid SearchID
+    And API Response is asserted for counts matching the limit
+      |counts|5|
+    And Forward page search is called One Page at a time
+      |InitialPage|2|
+    And Previous page search is called One Page at a time
+      |LastPage|4|
+
+  Scenario: Search by StartDate and EndDate and OfferStatus and StoreId
+    Given Business user searches offers using StartDate EndDate StoreId and OfferStatus with limit
+      |OfferSearchStartDateEndDateStoreIdOfferStatusLimit|
+    Then API Response is extracted
+    And API Response is asserted for Success Status Code
+    And API Response is read for a valid SearchID
+    And API Response is asserted for counts matching the limit
+      |counts|5|
+    And Forward page search is called One Page at a time
+    And Previous page search is called One Page at a time
+
+#  Scenario Outline: StoreID search with limit functionality
+#    When Business user searches offers using StoreId And <Limit>
+#    Then API Response is extracted
+#    And API Response is asserted for Success Status Code
+#    And API Response is asserted for counts matching the limit <value>
+#    Scenarios:
+#      |Limit|value|
+#      |OfferSearchStoreIdLimitOne|1|
+#      |OfferSearchStoreIdLimitTwo|2|
+#      |OfferSearchStoreIdLimitThree|3|
+#      |OfferSearchStoreIdLimitFour|4 |
+#      |OfferSearchStoreIdLimitFive|5 |
 
 #  Scenario Outline: Pre-Determined Iterative Forward Pagination Functionality Test
 #      When Pre-Determined Next Page search <iteratively> called One Page at a time

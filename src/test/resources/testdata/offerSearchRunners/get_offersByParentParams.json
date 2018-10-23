@@ -61,12 +61,12 @@
 
     "testGetOfferSearchByExternalOfferIdandStatus":[
       {
-        "q":"externalOfferId=2520W3218_001120,offerStatus=E"
+        "q":"externalOfferId=NAISC-50002688;offerStatus=A"
       }
     ],
     "testGetOfferSearchByExternalOfferIdAndStatusAndProgramCode":[
       {
-        "q":"offerStatus=(A orE);offerProgramCd-SC;externalOfferId=ECOM100346"
+        "q":"offerStatus=(A orE);offerProgramCd=SC;externalOfferId=ECOM100346"
       }
     ],
     "testGetOfferSearchByEndDateAndStoreIdAndExternalOfferId":[

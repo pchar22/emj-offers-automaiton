@@ -96,7 +96,7 @@ public class PromoteOfferScenarios extends BaseApiTest {
         dataExtractor.getTestEnvironmentEndPoint(GlobalConstants.testEnvironment)
             + ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER
             + "externalOfferId=" + externalOfferIdInFocus,
-        null, null, new HashMap<String, Object>() {
+        null, new HashMap<String, Object>(), new HashMap<String, Object>() {
           {
             put(GlobalConstants.CACHECONTROL, "no-cache");
             put(GlobalConstants.CONTENTTYPE, GlobalConstants.APPLICATION_VND_V1);
@@ -149,7 +149,7 @@ public class PromoteOfferScenarios extends BaseApiTest {
         dataExtractor.getTestEnvironmentEndPoint(GlobalConstants.testEnvironment)
             + ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER
             + "externalOfferId=" + externalOfferIdInFocus,
-        null, null, new HashMap<String, Object>() {
+        null, new HashMap<String, Object>(), new HashMap<String, Object>() {
           {
             put(GlobalConstants.CACHECONTROL, "no-cache");
             put(GlobalConstants.CONTENTTYPE, GlobalConstants.APPLICATION_VND_V1);
@@ -167,7 +167,7 @@ public class PromoteOfferScenarios extends BaseApiTest {
         dataExtractor.getTestEnvironmentEndPoint(GlobalConstants.testEnvironment)
             + ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER
             + "storeId=200200;limit=1",
-        null, null, new HashMap<String, Object>() {
+        null, new HashMap<String, Object>(), new HashMap<String, Object>() {
           {
             put(GlobalConstants.CACHECONTROL, "no-cache");
             put(GlobalConstants.CONTENTTYPE, GlobalConstants.APPLICATION_VND_V1);
@@ -188,7 +188,7 @@ public class PromoteOfferScenarios extends BaseApiTest {
           dataExtractor.getTestEnvironmentEndPoint(GlobalConstants.testEnvironment)
               + ResourceEndpointUri.OFFER_SEARCH + ResourceEndpointUri.QUERY_DELIMITER + "sid="
               + offerPaginated.getSid() + ";next=2",
-          null, null, new HashMap<String, Object>() {
+          null, new HashMap<String, Object>(), new HashMap<String, Object>() {
             {
               put(GlobalConstants.CACHECONTROL, "no-cache");
               put(GlobalConstants.CONTENTTYPE, GlobalConstants.APPLICATION_VND_V1);
@@ -239,7 +239,7 @@ public class PromoteOfferScenarios extends BaseApiTest {
     String J4UUri = GlobalConstants.J4UendPoint + "/" + offerIdInFocus + "/definition";
     System.out.println("J4U endpoint = " + J4UUri);
 
-    response = invokeService(HTTPMethod.GET, J4UUri, null, null, new HashMap<String, Object>() {
+    response = invokeService(HTTPMethod.GET, J4UUri, null, new HashMap<String, Object>(), new HashMap<String, Object>() {
       {
       }
     }, null, GlobalConstants.GetCallArgs.HEADERPARAM.toString(), null, null);

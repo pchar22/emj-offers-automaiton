@@ -23,6 +23,7 @@ public class OfferSearchAndLoadPagination extends BaseApiTest {
     int next;
     int expectedValue;
     BackgroundStepDefPOST apiExtraction = new BackgroundStepDefPOST();
+    Integer totalNoOfPages = -1;
 
     @When("^Business User Loads (.+) Offers with OfferStatus A$")
     public void businessExamples(String method)  {
@@ -70,12 +71,13 @@ public class OfferSearchAndLoadPagination extends BaseApiTest {
     }
 
     @When("^Forward page search is called One Page at a time$")
-    public void forwardPageSearchIsCalledOnePageAtATime(Map<String, Integer> readPage) {
+    public void forwardPageSearchIsCalledOnePageAtATime() {
         String currentPage;
-        Integer nextPage = readPage.get("InitialPage");
+        Integer nextPage = 2;
         do{
         authenticatedGalleryEndpoint = "https://emju-offers-dev.apps.np.stratus.albertsons.com/api/offers";
         String news = "?q=sid="+searchId+";next="+nextPage;
+        System.out.println("Page = " + nextPage);
         Object endpoint = (Object) authenticatedGalleryEndpoint.concat(news);
         authenticatedGalleryEndpoint = endpoint.toString();
         apiExtraction.apiResponseIsExtracted();
@@ -83,19 +85,22 @@ public class OfferSearchAndLoadPagination extends BaseApiTest {
         currentPage =apiResponseIsAssertedForExistingPageValue(nextPage);
         nextPage = nextPage + 1;
         } while(currentPage!=null);
+
+        totalNoOfPages = nextPage - 2;
     }
 
     @When("^Previous page search is called One Page at a time$")
-    public void previousPageSearchIsCalledOnePageAtATime(Map<String, Integer> readPage) {
+    public void previousPageSearchIsCalledOnePageAtATime() {
         String current;
         Integer currentPage;
-        Integer prevPage = readPage.get("LastPage");
+        Integer prevPage = totalNoOfPages;
         Map<String, Integer> forwardPage = new HashMap<>();
         forwardPage.put("InitialPage", 2);
-        forwardPageSearchIsCalledOnePageAtATime(forwardPage);
+//        forwardPageSearchIsCalledOnePageAtATime();
         do{
             authenticatedGalleryEndpoint = "https://emju-offers-dev.apps.np.stratus.albertsons.com/api/offers";
             String news = "?q=sid="+searchId+";next="+prevPage;
+            System.out.println("Page = " + prevPage);
             Object endpoint = (Object) authenticatedGalleryEndpoint.concat(news);
             authenticatedGalleryEndpoint = endpoint.toString();
             apiExtraction.apiResponseIsExtracted();

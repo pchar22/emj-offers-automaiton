@@ -1,4 +1,4 @@
-Feature: Offer Load API Positive Test Scenarios
+Feature: Offer Load API Bulk Load Test Scenarios
   Background: Set up Environment
     Given The Test Environment is Defined
       |currentTestEnvironment|dev|
